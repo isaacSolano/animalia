@@ -67,7 +67,77 @@
   <br>
   <button (click)="cambiarVista()">Cambiar Vista </button>
 
+  <div id="agregarAnimal">
+    <form>
 
+      <div>
+        <input type="radio" name="tipo" id="tipo_mamifero" value="mamifero" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_mamifero">Mamifero</label>        
+        
+        <input type="radio" name="tipo" id="tipo_ave" value="ave" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_ave">Ave</label>        
+
+        <input type="radio" name="tipo" id="tipo_anfibio" value="anfibio" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_anfibio">Anfibio</label>        
+
+        <input type="radio" name="tipo" id="tipo_pez" value="pez" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_pez">Pez</label>        
+
+        <input type="radio" name="tipo" id="tipo_reptil" value="reptil" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_reptil">Reptil</label>        
+
+        <input type="radio" name="tipo" id="tipo_antropodo" value="antropodo" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_antropodo">Antropodo</label>        
+
+        <input type="radio" name="tipo" id="tipo_molusco" value="molusco" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_molusco">Molusco</label>        
+
+        <input type="radio" name="tipo" id="tipo_gusano" value="gusano" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_gusano">Gusano</label>        
+
+        <input type="radio" name="tipo" id="tipo_equinodermos" value="equinodermos" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_equinodermos">Equinodermos</label>        
+
+        <input type="radio" name="tipo" id="tipo_medusas" value="medusas" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_medusas">Medusas</label>        
+
+        <input type="radio" name="tipo" id="tipo_esponjas" value="esponjas" (click)="registrarTipoAnimal($event.target.value)">
+        <label for="tipo_esponjas">Esponjas</label>        
+      </div>
+
+      <label for="txtNombre">
+        Nombre:
+      </label>
+      <input type="text" id="txtNombre" value="{{ nombre }}" (change)="actualizarValor('nombre', $event.target.value)">
+      <br>
+
+      <label for="txtSonido">
+        Sonido:
+      </label>
+      <input type="text" id="txtSonido" value="{{ sonido }}" (change)="actualizarValor('sonido', $event.target.value)">
+      <br>
+      
+      <label for="txtEsqueleto">
+        Esqueleto:
+      </label>
+      <input type="text" id="txtEsqueleto" value="{{ esqueleto }}" (change)="actualizarValor('esqueleto', $event.target.value)">
+      <br>
+
+      <label for="txtTipoAlimentacion">
+        Tipo alimentacion:
+      </label>
+      <input type="text" id="txtTipoAlimentacion" value="{{ tipo_alimentacion }}" (change)="actualizarValor('tipo_alimentacion', $event.target.value)">
+      <br>
+
+      <label for="txtTipoMovimiento">
+        Tipo movimiento:
+      </label>
+      <input type="text" id="txtTipoMovimiento" value="{{ tipo_movimiento }}" (change)="actualizarValor('tipo_movimiento', $event.target.value)">
+      <br>
+
+      <button type="button" (click)="crearObjetoAnimal(nombre, sonido, esqueleto, tipo_alimentacion, tipo_movimiento)">Registrar Animal</button>
+    </form>
+  </div>
 
 </div>
 

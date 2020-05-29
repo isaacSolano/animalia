@@ -13,7 +13,15 @@ export class AppComponent {
   animals =[{}];
   selected_animal ="";
   bProgramaSimple = true;
-  
+
+  // variables del formulario
+  tipo_animal = "";
+  nombre = "";
+  sonido = "";
+  esqueleto = "";
+  tipo_alimentacion = "";
+  tipo_movimiento = "";
+
   constructor(){
       this.actualizar_lista();
   }
@@ -65,6 +73,23 @@ export class AppComponent {
                         'movimiento': pAn.Movimiento()};
   }
 
-  
+  registrarTipoAnimal(valor:any){
+    this.tipo_animal = valor;
+  }
 
+  actualizarValor(prop:any, valor:any){
+    this[prop] = valor;
+  }
+
+  crearObjetoAnimal(nombre:any, sonido:any, esqueleto:any, tipo_alimentacion:any, tipo_movimiento:any){
+    if(this.tipo_animal === ""){
+      alert('Por favor seleccione el tipo de animal que desea registrar');
+    }else{
+      console.log(nombre);
+      console.log(sonido);
+      console.log(esqueleto);
+      console.log(tipo_alimentacion);
+      console.log(tipo_movimiento);
+    }
+  }
 }
