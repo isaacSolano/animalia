@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Animal } from './simpleObjects/animal';
+import { Animal } from './simpleObjects/Animal';
 import { Mamifero } from './complexObjects/Mamifero';
 import { ReinoAnimal } from './complexObjects/ReinoAnimal';
 
@@ -63,7 +63,7 @@ export class AppComponent {
                         'esqueleto' : pAn.tipo_esqueleto,
                         'extremidades' : pAn.cantidad_extremidades};
   }
-  
+
   crearMamifero(pAn: ReinoAnimal, pCtn: any){
     this.animals[pCtn]={'nombre': pAn.Nombre,
                         'sonido' : pAn.Sonido,
