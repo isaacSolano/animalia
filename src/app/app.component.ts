@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { Animal } from './simpleObjects/animal';
+import { Animal } from './simpleObjects/Animal';
 import { Mamifero } from './complexObjects/Mamifero';
 import { ReinoAnimal } from './complexObjects/ReinoAnimal';
+import { Artropodo } from './complexObjects/Artropodo';
+import { Molusco } from './complexObjects/Molusco';
 
 @Component({
   selector: 'app-animalia',
@@ -63,7 +65,7 @@ export class AppComponent {
                         'esqueleto' : pAn.tipo_esqueleto,
                         'extremidades' : pAn.cantidad_extremidades};
   }
-  
+
   crearMamifero(pAn: ReinoAnimal, pCtn: any){
     this.animals[pCtn]={'nombre': pAn.Nombre,
                         'sonido' : pAn.Sonido,
@@ -72,6 +74,28 @@ export class AppComponent {
                         'alimentacion' : pAn.Alimentacion(),
                         'movimiento': pAn.Movimiento()};
   }
+
+	crearArtropodo(pAn: Artropodo, pCtn: any){
+		this.animals[pCtn]={
+			'nombre': pAn.Nombre,
+			'sonido' : pAn.Sonido,
+            'esqueleto' : pAn.TipoEsqueleto(),
+            'extremidades' : pAn.Cantidad_Extremidades,
+            'alimentacion' : pAn.Alimentacion(),
+            'movimiento': pAn.Movimiento()
+		};
+	}
+
+	crearMolusco(pAn: Molusco, pCtn: any){
+		this.animals[pCtn]={
+			'nombre': pAn.Nombre,
+			'sonido' : pAn.Sonido,
+            'esqueleto' : pAn.TipoEsqueleto(),
+            'extremidades' : pAn.Cantidad_Extremidades,
+            'alimentacion' : pAn.Alimentacion(),
+            'movimiento': pAn.Movimiento()
+		};
+	}
 
   registrarTipoAnimal(valor:any){
     this.tipo_animal = valor;
