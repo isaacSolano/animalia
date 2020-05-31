@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Animal } from './simpleObjects/Animal';
 import { Mamifero } from './complexObjects/Mamifero';
+import { Ave } from './complexObjects/Ave';
+import { Anfibio } from './complexObjects/Anfibio';
 import { ReinoAnimal } from './complexObjects/ReinoAnimal';
 import { Artropodo } from './complexObjects/Artropodo';
 import { Molusco } from './complexObjects/Molusco';
@@ -40,6 +42,8 @@ export class AppComponent {
       this.crearMamifero(new Mamifero("Gato","maulla", "Interno", 4, "omnivoro", "en tierra"), this.animals.length );
       this.crearMamifero(new Mamifero("Leon","ruge", "Interno", 4, "carnivoro", "en tierra"), this.animals.length );
       this.crearMamifero(new Mamifero("Ornitorrinco","grazna", "Interno", 4, "carnivoro", "en tierra y en agua"), this.animals.length );
+      this.crearAve(new Ave("Faisan", "grazna", "Interno", 2, "omnivoro", "en tierra y aire"), this.animals.length);
+      this.crearAnfibio(new Anfibio("Rana", "croar", "Interno", 4, "omnivoro", "en tierra y agua"), this.animals.length);
 
     }
   }
@@ -96,6 +100,23 @@ export class AppComponent {
             'movimiento': pAn.Movimiento()
 		};
 	}
+  crearAve(pAn: Ave, pCtn: any){
+    this.animals[pCtn]={'nombre': pAn.Nombre,
+                        'sonido' : pAn.Sonido,
+                        'esqueleto' : pAn.TipoEsqueleto(),
+                        'extremidades' : pAn.Cantidad_Extremidades,
+                        'alimentacion' : pAn.Alimentacion(),
+                        'movimiento': pAn.Movimiento()};
+  }
+
+  crearAnfibio(pAn: Anfibio, pCtn: any){
+    this.animals[pCtn]={'nombre': pAn.Nombre,
+                        'sonido' : pAn.Sonido,
+                        'esqueleto' : pAn.TipoEsqueleto(),
+                        'extremidades' : pAn.Cantidad_Extremidades,
+                        'alimentacion' : pAn.Alimentacion(),
+                        'movimiento': pAn.Movimiento()};
+  }
 
   registrarTipoAnimal(valor:any){
     this.tipo_animal = valor;
