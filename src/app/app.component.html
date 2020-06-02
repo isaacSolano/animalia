@@ -67,9 +67,13 @@
   <br>
   <button (click)="cambiarVista()">Cambiar Vista </button>
 
-  <div id="agregarAnimal">
-    <form>
+  <div [ngClass]="{'d-none': bProgramaSimple}" id="agregarAnimal">
 
+    <h2>Crear animal complejo</h2>
+
+    <h3>Elija el tipo de animal a registrar: </h3>
+
+    <form>
       <div>
         <input type="radio" name="tipo" id="tipo_mamifero" value="mamifero" (click)="registrarTipoAnimal($event.target.value)">
         <label for="tipo_mamifero">Mamifero</label>
@@ -111,6 +115,12 @@
       <input type="text" id="txtNombre" value="{{ nombre }}" (change)="actualizarValor('nombre', $event.target.value)">
       <br>
 
+      <label for="txtCantExtremidades">
+        Cantidad extremidades:
+      </label>
+      <input type="number" id="nCantidadExtremidades" value="{{ cantidad_extremidades }}" (change)="actualizarValor('cantidad_extremidades', $event.target.value)">
+      <br>
+
       <label for="txtSonido">
         Sonido:
       </label>
@@ -135,7 +145,7 @@
       <input type="text" id="txtTipoMovimiento" value="{{ tipo_movimiento }}" (change)="actualizarValor('tipo_movimiento', $event.target.value)">
       <br>
 
-      <button type="button" (click)="crearObjetoAnimal(nombre, sonido, esqueleto, tipo_alimentacion, tipo_movimiento)">Registrar Animal</button>
+      <button type="button" (click)="crearObjetoAnimal(nombre, cantidad_extremidades, sonido, esqueleto, tipo_alimentacion, tipo_movimiento)">Registrar Animal</button>
     </form>
   </div>
 

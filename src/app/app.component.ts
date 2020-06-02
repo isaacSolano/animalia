@@ -1,20 +1,29 @@
 import { Component } from '@angular/core';
 import { Animal } from './simpleObjects/Animal';
+
 import { Mamifero } from './complexObjects/Mamifero';
 import { Ave } from './complexObjects/Ave';
 import { Anfibio } from './complexObjects/Anfibio';
-import { ReinoAnimal } from './complexObjects/ReinoAnimal';
+import { Pez } from './complexObjects/Pez';
+import { Reptil } from './complexObjects/Reptil';
 import { Artropodo } from './complexObjects/Artropodo';
 import { Molusco } from './complexObjects/Molusco';
+import { Gusano } from './complexObjects/Gusanos';
+import { Equinodermos } from './complexObjects/Equinodermos';
+import { Medusa } from './complexObjects/Medusa';
+import { Esponjas } from './complexObjects/Esponjas';
+
+import { ReinoAnimal } from './complexObjects/ReinoAnimal';
 
 @Component({
   selector: 'app-animalia',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'Animalia';
-  animals =[{}];
+  animals = [];
   selected_animal ="";
   bProgramaSimple = true;
 
@@ -22,6 +31,7 @@ export class AppComponent {
   tipo_animal = "";
   nombre = "";
   sonido = "";
+  cantidad_extremidades = 0;
   esqueleto = "";
   tipo_alimentacion = "";
   tipo_movimiento = "";
@@ -31,21 +41,14 @@ export class AppComponent {
   }
 
   actualizar_lista(){
-    this.animals=[{}];
+    this.animals = [];
 
     if(this.bProgramaSimple){
-      this.crearAnimalSimple(new Animal("Perro","Ladra", "Interno", 4), this.animals.length -1);
-      this.crearAnimalSimple(new Animal("Gato","Maulla", "Interno", 4), this.animals.length );
-      this.crearAnimalSimple(new Animal("Escorpion","N/a", "Externo", 8), this.animals.length );
-    }else{
-      this.crearMamifero(new Mamifero("Perro","ladra", "Interno", 4, "omnivoro", "en tierra"), this.animals.length -1);
-      this.crearMamifero(new Mamifero("Gato","maulla", "Interno", 4, "omnivoro", "en tierra"), this.animals.length );
-      this.crearMamifero(new Mamifero("Leon","ruge", "Interno", 4, "carnivoro", "en tierra"), this.animals.length );
-      this.crearMamifero(new Mamifero("Ornitorrinco","grazna", "Interno", 4, "carnivoro", "en tierra y en agua"), this.animals.length );
-      this.crearAve(new Ave("Faisan", "grazna", "Interno", 2, "omnivoro", "en tierra y aire"), this.animals.length);
-      this.crearAnfibio(new Anfibio("Rana", "croar", "Interno", 4, "omnivoro", "en tierra y agua"), this.animals.length);
-
+      this.crearAnimalSimple(new Animal("Perro","Ladra", "Interno", 4));
+      this.crearAnimalSimple(new Animal("Gato","Maulla", "Interno", 4));
+      this.crearAnimalSimple(new Animal("Escorpion","N/a", "Externo", 8));
     }
+
   }
 
   seleccion(pAnim: any){
@@ -63,60 +66,130 @@ export class AppComponent {
     this.title = this.bProgramaSimple?"Animalia simple":"Animalia compleja";
   }
 
-  crearAnimalSimple(pAn: Animal, pCtn: any){
-    this.animals[pCtn]={'nombre': pAn.nombre,
+  crearAnimalSimple(pAn: Animal){
+    this.animals.push({'nombre': pAn.nombre,
                         'sonido' : pAn.sonido,
                         'esqueleto' : pAn.tipo_esqueleto,
-                        'extremidades' : pAn.cantidad_extremidades};
+                        'extremidades' : pAn.cantidad_extremidades});
   }
 
-  crearMamifero(pAn: ReinoAnimal, pCtn: any){
-    this.animals[pCtn]={'nombre': pAn.Nombre,
+  crearMamifero(pAn: ReinoAnimal){
+    this.animals.push({'nombre': pAn.Nombre,
                         'sonido' : pAn.Sonido,
                         'esqueleto' : pAn.TipoEsqueleto(),
                         'extremidades' : pAn.Cantidad_Extremidades,
                         'alimentacion' : pAn.Alimentacion(),
-                        'movimiento': pAn.Movimiento()};
+                        'movimiento': pAn.Movimiento()
+      });
   }
 
-	crearArtropodo(pAn: Artropodo, pCtn: any){
-		this.animals[pCtn]={
+  crearAve(pAn: Ave){
+    this.animals.push({'nombre': pAn.Nombre,
+                        'sonido' : pAn.Sonido,
+                        'esqueleto' : pAn.TipoEsqueleto(),
+                        'extremidades' : pAn.Cantidad_Extremidades,
+                        'alimentacion' : pAn.Alimentacion(),
+                        'movimiento': pAn.Movimiento()
+      });
+  }
+
+  crearAnfibio(pAn: Anfibio){
+    this.animals.push({'nombre': pAn.Nombre,
+                        'sonido' : pAn.Sonido,
+                        'esqueleto' : pAn.TipoEsqueleto(),
+                        'extremidades' : pAn.Cantidad_Extremidades,
+                        'alimentacion' : pAn.Alimentacion(),
+                        'movimiento': pAn.Movimiento()
+    });
+  }
+
+  crearPez(pAn: Pez){
+    this.animals.push({'nombre': pAn.Nombre,
+                        'sonido' : pAn.Sonido,
+                        'esqueleto' : pAn.TipoEsqueleto(),
+                        'extremidades' : pAn.Cantidad_Extremidades,
+                        'alimentacion' : pAn.Alimentacion(),
+                        'movimiento': pAn.Movimiento()
+    });
+  }
+
+  crearReptil(pAn: Reptil){
+    this.animals.push({'nombre': pAn.Nombre,
+                        'sonido' : pAn.Sonido,
+                        'esqueleto' : pAn.TipoEsqueleto(),
+                        'extremidades' : pAn.Cantidad_Extremidades,
+                        'alimentacion' : pAn.Alimentacion(),
+                        'movimiento': pAn.Movimiento()
+      });
+  }
+
+	crearArtropodo(pAn: Artropodo){
+		this.animals.push({
 			'nombre': pAn.Nombre,
 			'sonido' : pAn.Sonido,
             'esqueleto' : pAn.TipoEsqueleto(),
             'extremidades' : pAn.Cantidad_Extremidades,
             'alimentacion' : pAn.Alimentacion(),
             'movimiento': pAn.Movimiento()
-		};
+		});
 	}
 
-	crearMolusco(pAn: Molusco, pCtn: any){
-		this.animals[pCtn]={
+	crearMolusco(pAn: Molusco){
+		this.animals.push({
 			'nombre': pAn.Nombre,
 			'sonido' : pAn.Sonido,
             'esqueleto' : pAn.TipoEsqueleto(),
             'extremidades' : pAn.Cantidad_Extremidades,
             'alimentacion' : pAn.Alimentacion(),
             'movimiento': pAn.Movimiento()
-		};
+		});
+  }
+  
+  crearGusano(pAn: Gusano){
+		this.animals.push({
+			'nombre': pAn.Nombre,
+			'sonido' : pAn.Sonido,
+            'esqueleto' : pAn.TipoEsqueleto(),
+            'extremidades' : pAn.Cantidad_Extremidades,
+            'alimentacion' : pAn.Alimentacion(),
+            'movimiento': pAn.Movimiento()
+		});
+  }
+  
+  crearEquinodermo(pAn: Equinodermos){
+		this.animals.push({
+			'nombre': pAn.Nombre,
+			'sonido' : pAn.Sonido,
+            'esqueleto' : pAn.TipoEsqueleto(),
+            'extremidades' : pAn.Cantidad_Extremidades,
+            'alimentacion' : pAn.Alimentacion(),
+            'movimiento': pAn.Movimiento()
+		});
+  }
+  
+  crearMedusa(pAn: Medusa){
+		this.animals.push({
+			'nombre': pAn.Nombre,
+			'sonido' : pAn.Sonido,
+            'esqueleto' : pAn.TipoEsqueleto(),
+            'extremidades' : pAn.Cantidad_Extremidades,
+            'alimentacion' : pAn.Alimentacion(),
+            'movimiento': pAn.Movimiento()
+		});
+  }
+  
+  crearEsponja(pAn: Esponjas){
+		this.animals.push({
+			'nombre': pAn.Nombre,
+			'sonido' : pAn.Sonido,
+            'esqueleto' : pAn.TipoEsqueleto(),
+            'extremidades' : pAn.Cantidad_Extremidades,
+            'alimentacion' : pAn.Alimentacion(),
+            'movimiento': pAn.Movimiento()
+		});
 	}
-  crearAve(pAn: Ave, pCtn: any){
-    this.animals[pCtn]={'nombre': pAn.Nombre,
-                        'sonido' : pAn.Sonido,
-                        'esqueleto' : pAn.TipoEsqueleto(),
-                        'extremidades' : pAn.Cantidad_Extremidades,
-                        'alimentacion' : pAn.Alimentacion(),
-                        'movimiento': pAn.Movimiento()};
-  }
 
-  crearAnfibio(pAn: Anfibio, pCtn: any){
-    this.animals[pCtn]={'nombre': pAn.Nombre,
-                        'sonido' : pAn.Sonido,
-                        'esqueleto' : pAn.TipoEsqueleto(),
-                        'extremidades' : pAn.Cantidad_Extremidades,
-                        'alimentacion' : pAn.Alimentacion(),
-                        'movimiento': pAn.Movimiento()};
-  }
+
 
   registrarTipoAnimal(valor:any){
     this.tipo_animal = valor;
@@ -126,15 +199,72 @@ export class AppComponent {
     this[prop] = valor;
   }
 
-  crearObjetoAnimal(nombre:any, sonido:any, esqueleto:any, tipo_alimentacion:any, tipo_movimiento:any){
+  limpiarFormulario(){
+    this.tipo_animal = "";
+    this.nombre = "";
+    this.sonido = "";
+    this.cantidad_extremidades = 0;
+    this.esqueleto = "";
+    this.tipo_alimentacion = "";
+    this.tipo_movimiento = "";
+  }
+
+  crearObjetoAnimal(nombre:any, cantidad_extremidades:any, sonido:any, esqueleto:any, tipo_alimentacion:any, tipo_movimiento:any){
     if(this.tipo_animal === ""){
       alert('Por favor seleccione el tipo de animal que desea registrar');
     }else{
-      console.log(nombre);
-      console.log(sonido);
-      console.log(esqueleto);
-      console.log(tipo_alimentacion);
-      console.log(tipo_movimiento);
+      switch(this.tipo_animal){
+        case "mamifero":
+          this.crearMamifero(new Mamifero(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "ave":
+          this.crearAve(new Ave(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "anfibio":
+          this.crearAnfibio(new Anfibio(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "pez":
+          this.crearPez(new Pez(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "reptil":
+          this.crearReptil(new Reptil(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "antropodo":
+          this.crearArtropodo(new Artropodo(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "molusco":
+          this.crearMolusco(new Molusco(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "gusano":
+          this.crearGusano(new Gusano(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "equinodermos":
+          this.crearEquinodermo(new Equinodermos(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "medusas":
+          this.crearMedusa(new Medusa(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        case "esponjas":
+          this.crearEsponja(new Esponjas(nombre, sonido, esqueleto, cantidad_extremidades, tipo_alimentacion, tipo_movimiento));
+          break;
+
+        default:
+          this.crearAnimalSimple(new Animal(nombre, sonido, esqueleto, cantidad_extremidades));
+          break;
+
+      }
+
+      this.limpiarFormulario();
     }
   }
 }
