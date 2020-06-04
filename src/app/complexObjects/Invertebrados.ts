@@ -1,5 +1,14 @@
 import { ReinoAnimal } from './ReinoAnimal';
 
+export enum ITaxonomia{
+    ARTROPODOS,
+    MOLUSCOS,
+    EQUINODERMOS,
+    GUSANOS,
+    ESPONJAS,
+    MEDUSAS
+};
+
 export abstract class Invertebrado extends ReinoAnimal {
     Tipo_Esqueleto: String;
 
